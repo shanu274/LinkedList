@@ -1,0 +1,40 @@
+class Solution
+{
+    //Function to find the length of a loop in the linked list.
+    static int countNodesinLoop(Node head)
+    {
+        //Add your code here.
+        Node min = head;
+        Node max = head;
+        int res = 0;
+      //  boolean loopExists = false;
+        
+        while(max != null && max != null){
+            min = min.next;
+            
+            if(max.next != null){
+                max = max.next.next;
+            }else{
+                return 0;
+            }if(min == max){
+                break;
+            }
+        }
+        
+        if(max == null){
+             return 0;
+        }
+        
+        max = max.next;
+        res++;
+        
+        while(max != min){
+            res++;
+            max = max.next;
+        }
+        return res;
+    
+    }
+    
+}
+
