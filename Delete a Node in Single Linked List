@@ -1,0 +1,19 @@
+class GfG
+{
+    Node deleteNode(Node head, int x){
+        var temp = head;
+        int i = 1;
+        
+        if(x == 1){
+            head = head.next;
+        }else{
+            while(++i < x){
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+        }
+        
+        return head;
+    }
+    
+}
