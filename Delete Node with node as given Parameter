@@ -1,0 +1,6 @@
+class sol{
+public void deleteNode(ListNode node){
+      node.val = node.next.val;
+      node.next = noe.next.next;
+  }
+}
