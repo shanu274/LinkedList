@@ -1,0 +1,36 @@
+class Solution
+{
+    public static Node findIntersection(Node head1, Node head2)
+    {
+        // add your code here
+        // return the head of intersection list
+        
+       if(head1 == null || head2 == null){
+          return head1;
+      }
+      
+      HashSet<Integer> set = new HashSet<>();
+      ArrayList<Integer> list=new ArrayList<>();
+      while(head2!=null)
+        {
+            set.add(head2.data);
+            head2=head2.next;
+        }
+        while(head1!=null)
+        {
+            if(set.contains(head1.data))
+            {
+                list.add(head1.data);
+            }
+            head1=head1.next;
+        }
+        Node head=new Node(0);
+        Node list1=head;
+        for(Integer val :list)
+        {
+            list1.next=new Node(val);
+            list1=list1.next;
+        }
+        return head.next;
+    }
+}
