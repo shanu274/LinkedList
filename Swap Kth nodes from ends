@@ -1,0 +1,52 @@
+/* Linked List Node class
+   class Node  {
+     int data;
+     Node next;
+     Node(int data)
+     {
+         this.data = data;
+         next = null;
+     }
+  }
+*/
+class GFG
+{
+    //Function to swap Kth node from beginning and end in a linked list.
+    Node swapkthnode(Node head, int num, int K)
+    {
+        // your code here
+        if(K > num) return head;
+        
+        Node aprev = null;
+        Node a = head;
+        
+        Node bprev = null;
+        Node b = head;
+        
+        for(int i = 0; i < K-1; i++){
+            aprev = a; 
+            a = a.next;
+        }
+        
+        for(int i = 0; i < num-K; i++){
+            bprev = b; 
+            b = b.next;
+        }
+        
+        if(aprev != null) 
+          aprev.next = b;
+        
+        if(bprev != null) 
+          bprev.next = a;
+          
+          Node temp = a.next;
+          a.next = b.next;
+          b.next = temp;
+          
+          if(K == 1) head = b;
+          
+          if(num == K)  head = a;
+          
+          return head;
+    }
+}
