@@ -1,0 +1,44 @@
+/*Node class  used in the program
+class Node
+{
+	int data;
+	Node next;
+	Node bottom;
+	
+	Node(int d)
+	{
+		data = d;
+		next = null;
+		bottom = null;
+	}
+}
+*/
+/*  Function which returns the  root of 
+    the flattened linked list. */
+class GfG
+{
+    Node flatten(Node root)
+    {
+	// Your code here
+	if(root == null) return root;
+	ArrayList<Integer> a = new ArrayList<Integer>();
+	Node temp = root;
+	while(temp != null){
+	    Node p = temp;
+	    while(p != null){
+	        a.add(p.data);
+	        p = p.bottom;
+	    }
+	    temp = temp.next;
+	}
+	Collections.sort(a);
+	Node flat = new Node(0);
+	Node res = flat;
+	for(int i : a){
+	    Node curr = new Node(i);
+	    flat.bottom = curr;
+	    flat = curr;
+	}
+	return res.bottom;
+    }
+}
